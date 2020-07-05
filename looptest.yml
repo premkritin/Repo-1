@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create user
+      user: name=prem state=present
+    - name: Create user
+      user: name=prem33 state=present
+    - name: Create user
+      user: name=prem3 state=present
+    - name: Create user
+      user: name=prem56 state=present
+    - name: Create user
+      user: name=prem5 state=present

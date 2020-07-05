@@ -1,0 +1,14 @@
+--- 
+- hosts: demo
+  become: yes
+  tasks:
+    - name:  This will not be considered as Failure
+      command: /bin/false 
+      register: output
+      ignore_errors: yes
+    - debug: var=output
+    - name: fail the play if the previous command did not succeed
+      fail: msg="the command start"
+      when: "'root' in output.msg"
+    - name: END OF TASK
+      command: echo EOT

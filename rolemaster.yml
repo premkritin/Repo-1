@@ -1,0 +1,6 @@
+---
+- hosts: demo
+  become: yes
+  roles:
+    - { role: dba, when: ansible_os_family == "RedHat" }
+    - { role: web, when: ansible_os_family == "Debian" }   

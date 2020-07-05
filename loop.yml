@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create user
+      user: name='{{item}}' state=present
+      with_items:
+         - reddy
+         - modi
+         - pawan
+         - naiya
+         - bala
+    - name: add a list of users
+      user: name={{ item.namee }} groups={{ item.groupss }}  state=present
+      with_items:
+        - { name: testuser1, groups: daemon }
+        - { name: testuser2, groups: root  }
+        - { name: testuser3, groups: root  }   

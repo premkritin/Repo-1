@@ -1,0 +1,16 @@
+---
+- hosts: all 
+  become: yes
+  vars:
+    - pkg: apache2
+  tasks:
+    - name: Install telnet
+      apt: name=telnet state=present
+    - name: Install git
+      apt: name=git state=present
+    - name: Install Apache
+      apt: name='{{pkg}}' state=present
+    - name: Start Apache
+      service: name='{{pkg}}' state=started
+      async: 1000 
+      poll: 30

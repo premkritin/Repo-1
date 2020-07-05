@@ -1,0 +1,14 @@
+---
+- hosts: demo 
+  become: yes
+  tasks:
+    - name: Get STAT OF A FILE
+      stat: path=/etc/thefile
+      register: st
+    - debug: var=st
+    - name: CREATE THEFILE
+      shell: touch /etc/thefile
+      when:  not st.stat.exists
+      stat": {
+            "exists": false
+        }

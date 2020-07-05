@@ -1,0 +1,18 @@
+---
+- hosts: demo
+  tasks:
+   - name: Create a test file
+     copy:
+       dest: /home/{{ansible_user}}/{{item}}
+       content: "{{ansible_host}}"
+     loop:
+       - testfile1
+       - testfile2
+   - name: Copy/fetch the file to local machine
+     fetch:
+       src: /home/{{ansible_user}}/{{item}}
+       dest: fetched/
+       flat: yes
+     loop:
+        - testfile1
+        - testfile2

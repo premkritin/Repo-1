@@ -1,0 +1,11 @@
+---
+- hosts: demo
+  tasks:
+   - name: Create a test file
+     file:
+       path: /home/{{ansible_user}}/testfile
+       state: touch
+   - name: Copy/fetch the file to local machine
+     fetch:
+       src: /home/{{ansible_user}}/testfile
+       dest: fetched/

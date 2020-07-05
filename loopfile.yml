@@ -1,0 +1,9 @@
+- hosts: demo
+  become: yes
+  tasks:
+    - debug: msg="{{ item }}"
+      with_file:
+        - testfile
+    - name: Install Git
+      apt:
+        name: git

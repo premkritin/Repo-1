@@ -1,0 +1,12 @@
+---
+- hosts: demo:local
+  become: yes
+  tasks: 
+    - name: Install Git
+      apt: name=git state=present
+      tags:
+        - dev
+    - name: Install Apache
+      apt: name=apache2 state=present
+      tags:
+        - test 

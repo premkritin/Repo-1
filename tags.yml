@@ -1,0 +1,23 @@
+---
+- hosts: all 
+  tasks:
+   - name: Say hi to Ganesh
+     debug: msg="Hi Ganesh"
+     tags:
+       - ganesh
+   - name: Say hi to Bala
+     debug: msg="Hi Bala"
+     tags:
+       - bala
+   - name: Say hi to Prem
+     debug: msg="Hi Prem"
+     tags:
+       - prem
+   - name: Say hi to Laxmikant
+     debug: msg="Hi Laxmikant"
+     tags:
+       - laxmikant
+   - name: Say hi to Naiya
+     debug: msg="Hi Naiya"
+     tags:
+       - naiya

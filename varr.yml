@@ -1,0 +1,19 @@
+---
+- hosts: demo 
+  become: yes
+  vars:
+    - pkg: apache2
+  tasks:
+    - name: Install Apache
+      apt: name='{{pkg}}' state=present
+    - name: Start Apache
+      service: name='{{pkg}}' state=started
+    - name: Print Memory Used
+      raw: echo '{{ansible_memfree_mb}}' 
+      register: output
+    - debug: var=output.stdout
+    - name: uptime info
+      raw: "uptime"
+      register: output
+    - debug: var=output.stdout
+

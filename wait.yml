@@ -1,0 +1,15 @@
+---
+- hosts: all 
+  become: yes
+  tasks:
+   - name: apcche install
+     apt: name=apache2 state=present
+   - name: wait for the service to start listening on port 80
+     wait_for:
+       port: 80
+       state: started
+   - name: wait for file
+     wait_for:
+       path: /tmp/dummy    
+   - name: END OF TASK
+     command: echo EOT

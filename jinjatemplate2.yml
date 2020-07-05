@@ -1,0 +1,9 @@
+---
+- hosts: demo
+  vars:
+    mylist: ['adam', 'm' ,'devops']
+  tasks:
+    - name: Ansible Template Example
+      template:
+        src: test.txt
+        dest: /tmp/testfile

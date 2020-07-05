@@ -1,0 +1,8 @@
+- hosts: demo
+  become: yes
+  tasks:
+    - name:  This will not be considered as Failure
+      command: /bin/false
+      register: output
+      ignore_errors: yes
+    - debug: var=output  

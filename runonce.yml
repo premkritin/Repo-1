@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks: 
+    - name: Install Git
+      apt: name=git state=present
+      run_once: true
+      delegate_to: Node01
+

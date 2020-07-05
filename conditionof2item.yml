@@ -1,0 +1,9 @@
+- hosts: all 
+  become: yes
+  tasks:
+    - name: Install apache for debian
+      apt: name=apache2 state=present
+      when: ansible_os_family == "Debian" or ansible_os_family == "Fedora"
+    - name: Install apache for redhat
+      yum: name=httpd state=present
+      when: ansible_os_family == "RedHat" and ansible_pkg_mgr == "yum"

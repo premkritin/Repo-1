@@ -1,0 +1,15 @@
+---
+- hosts: demo
+  become: yes
+  tasks:
+     - name: install apache
+       apt: name=apache2 state=present
+       notify: service start
+     - name: install telnet
+       apt: name=telnet state=present
+       notify: service start
+     - name: end of task
+       raw: echo "EOT"
+  handlers:     
+     - name: service start
+       service: name=apache2 state=started

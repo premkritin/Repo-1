@@ -1,0 +1,10 @@
+---
+- hosts: demo:local
+  become: yes
+  tasks: 
+    - name: Install Git
+      apt: name=git state=absent
+    - name: Install Apache
+      apt: name=apache2 state=absent
+    - name: Start Apache
+      service: name=apache2 state=started
