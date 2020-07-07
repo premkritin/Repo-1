@@ -1,4 +1,4 @@
-{% for item in myylist %}
+{% for item in myyylist %}
   {{ item }}
 {% endfor %}
 ~
