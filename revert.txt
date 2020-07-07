@@ -1,4 +1,2 @@
 firtst
 second
-third
-fourth
